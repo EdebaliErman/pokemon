@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { pokeInfo, pokeSpecies } from '../../api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKhanda, faJedi, faEarthAsia, faDna, faEgg } from '@fortawesome/free-solid-svg-icons';
+import {
+    faKhanda,
+    faJedi,
+    faEarthAsia,
+    faDna,
+    faEgg
+} from '@fortawesome/free-solid-svg-icons';
 import './style.css'
 
 function CardDetail() {
@@ -49,7 +55,7 @@ function CardDetail() {
                             <div> <FontAwesomeIcon icon={faDna} />
                                 <h1>{species.growth_rate.name}</h1>
                             </div>
-                            {species.egg_groups.map((egg,i) =>
+                            {species.egg_groups.map((egg, i) =>
                                 <div key={i}> <FontAwesomeIcon icon={faEgg} />
                                     <h1> {egg.name}</h1>
                                 </div>

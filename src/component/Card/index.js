@@ -15,7 +15,7 @@ function Card({ name }) {
             setBgcolor(color[type])
         }
     }, [info])
-    
+
     const color = {
         water: type === "water" ? "#b0b0d1" : "blue",
         fire: type === "fire" ? "#a40606" : "#a40606",
