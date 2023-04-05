@@ -1,0 +1,67 @@
+html a {
+  text-decoration: none;
+
+}
+
+.App {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  text-align: center;
+}
+
+
+.home {
+  position: fixed;
+  top: 3rem;
+  left: 3rem;
+  z-index: 1;
+}
+
+.home img {
+  height: 7rem;
+  cursor: pointer;
+  animation: filter 2s alternate infinite;
+
+}
+.home img:hover{
+  filter: drop-shadow(1px 1px 1rem red);
+  animation: rotate 2s alternate infinite;
+  
+}
+.home img {
+  max-height: 12rem;
+  height: 8rem;
+  min-height: 5rem;
+}
+@keyframes rotate {
+  from {
+    transform:scale(1) rotate(0deg);
+  }
+  to {
+    transform:scale(1.2) rotate(360deg);
+   
+  }
+}
+@keyframes filter{
+  from{
+    filter: drop-shadow(1px 1px 0.5rem red);
+
+  }
+  to{
+    filter: drop-shadow(1px 1px 1rem rgba(5, 201, 255, 0.589));
+
+  }
+  
+}
+
+.search input{
+  padding:0.3rem 1rem;
+  border-radius: 1rem;
+  color: rgb(0, 98, 255);
+  background-color: rgb(255, 208, 0);
+  font-family: 'Shojumaru', cursive;
+  border: 5px solid rgb(0, 81, 255);
+  box-shadow: inset 1px 1px 1px 3px rgba(0, 0, 0, 0.403);
+}
