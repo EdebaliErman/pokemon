@@ -13,71 +13,67 @@ function CardDetail() {
     useEffect(() => {
         pokeInfo(setInfo, name)
         pokeSpecies(setSpecies, name)
-    }
-        , [])
-
-    species && console.log(species, "sp")
+    }, [])
     return (
         <div className='card-detail'>
-            {info && species && <div className='poke-detail'>
+            {info &&
+                species &&
+                <div className='poke-detail' >
+                    <div className='poke-img-power' style={{ color: species.color.name }}>
+                        <h1 style={{ fontSize: "3rem" }}>{name} #{info.id}</h1>
+                        <img src={info.sprites.other.home.front_default} alt='pokemonImage' style={{ filter: ` drop-shadow(12px 12px 3px ${species.color.name})` }} /><br></br>
+                        <h2>KG #{info.weight} height : {info.height}0.cm</h2>
+                        <div className='stat-bar' >
 
-                <div className='poke-img-power' style={{ color: species.color.name }}>
-                    <h1 style={{ fontSize: "3rem" }}>{name} #{info.id}</h1>
-                    <img src={info.sprites.other.home.front_default} style={{ filter: ` drop-shadow(12px 12px 3px ${species.color.name})` }} /><br></br>
-                    <h2>KG #{info.weight} height : {info.height}0.cm</h2>
-                    <div className='stat-bar'>
-
-                        <h2>Happines</h2>
-                        <div className='skill-container' >
-                            <div className='skill' style={{ width: `${species.base_happiness}%`, backgroundColor: species.color.name }}>{species.base_happiness}</div>
-                        </div>
-                        <h2>capture rate</h2>
-                        <div className='skill-container' >
-                            <div className='skill' style={{ width: 100 > `${species.capture_rate}%`, backgroundColor: species.color.name }}>{species.capture_rate}</div>
-                        </div>
-
-                    </div>
-
-                    <div className='font-icon'>
-                        <div>
-                            <FontAwesomeIcon icon={faKhanda} />
-                            <h1>{info.abilities[0].ability.name}</h1>
-                        </div>
-                        <div>
-                            <FontAwesomeIcon icon={faJedi} />
-                            <h1>{info.abilities[1].ability.name}</h1>
-                        </div>
-                        <div> <FontAwesomeIcon icon={faEarthAsia} />
-                            <h1>{species.habitat.name}</h1>
-                        </div>
-                        <div> <FontAwesomeIcon icon={faDna} />
-                            <h1>{species.growth_rate.name}</h1>
-                        </div>
-                        {species.egg_groups.map((egg) => 
-                        <div  > <FontAwesomeIcon icon={faEgg} />
-                            <h1> {egg.name}</h1>
-                        </div>
-                        )}
-                    </div>
-                    <div>
-                        <p>
-                            {species.flavor_text_entries[0].flavor_text}
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    {info.stats.map((item, i) =>
-                        <div className='stat-bar' key={i}>
-                            <h4>{item.stat.name} </h4>
+                            <h2>Happines</h2>
                             <div className='skill-container' >
-                                <div className='skill' style={{ width: 100 > `${item.base_stat}%`, backgroundColor: "red" }}>{item.base_stat}</div>
+                                <div className='skill' style={{ width: `${species.base_happiness}%`, backgroundColor: species.color.name }}>{species.base_happiness}</div>
+                            </div>
+                            <h2>capture rate</h2>
+                            <div className='skill-container' >
+                                <div className='skill' style={{ width: 100 > `${species.capture_rate}%`, backgroundColor: species.color.name }}>{species.capture_rate}</div>
                             </div>
                         </div>
-                    )}
-                </div>
+                        <div className='font-icon'>
+                            <div>
+                                <FontAwesomeIcon icon={faKhanda} />
+                                <h1>{info.abilities[0].ability.name}</h1>
+                            </div>
+                            <div>
+                                <FontAwesomeIcon icon={faJedi} />
+                                <h1>{info.abilities[1].ability.name}</h1>
+                            </div>
+                            <div> <FontAwesomeIcon icon={faEarthAsia} />
+                                <h1>{species.habitat.name}</h1>
+                            </div>
+                            <div> <FontAwesomeIcon icon={faDna} />
+                                <h1>{species.growth_rate.name}</h1>
+                            </div>
+                            {species.egg_groups.map((egg,i) =>
+                                <div key={i}> <FontAwesomeIcon icon={faEgg} />
+                                    <h1> {egg.name}</h1>
+                                </div>
+                            )}
+                        </div>
+                        <div>
+                            <p>
+                                {species.flavor_text_entries[0].flavor_text}
+                            </p>
+                        </div>
+                    </div>
 
-            </div>}
+                    <div>
+                        {info.stats.map((item, i) =>
+                            <div className='stat-bar' key={i}>
+                                <h4>{item.stat.name} </h4>
+                                <div className='skill-container' >
+                                    <div className='skill' style={{ width: 100 > `${item.base_stat}%`, backgroundColor: "red" }}>{item.base_stat}</div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                </div>}
 
             <div style={{ display: 'flex', justifyContent: "space-around", marginBottom: "10rem", flexWrap: "wrap" }}>
                 <div className='game-index' >

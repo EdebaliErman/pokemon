@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import {
+    useEffect,
+    useState
+} from 'react'
 import './style.css'
 import { pokeInfo } from '../../api'
 function Card({ name }) {
@@ -7,9 +10,12 @@ function Card({ name }) {
     const [bgColor, setBgcolor] = useState()
     useEffect(() => {
         pokeInfo(setInfo, name)
-        info && setType(info.types[0].type.name)
-        info && setBgcolor(color[type])
-    }, [info]) 
+        if (info) {
+            setType(info.types[0].type.name)
+            setBgcolor(color[type])
+        }
+    }, [info])
+    
     const color = {
         water: type === "water" ? "#b0b0d1" : "blue",
         fire: type === "fire" ? "#a40606" : "#a40606",
@@ -28,7 +34,7 @@ function Card({ name }) {
         ghost: type === "ghost" ? "rgb(0, 8, 27)" : "",
         ground: type === "ground" ? "rgb(131, 73, 67)" : ""
     }
-    
+
     return (
         <div className='pokeCard' style={
             {
