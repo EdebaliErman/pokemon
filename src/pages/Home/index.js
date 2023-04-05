@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import Card from '../../component/Card';
 import { Link } from 'react-router-dom';
-import { pokeApi, pokeInfo } from '../../api';
+import { pokeApi } from '../../api';
 function Home() {
     const [poke, setPoke] = useState()
     const [search, setSearch] = useState()
