@@ -1,3 +1,3 @@
 # pokemon
 
-edebalierman.github.io/pokemon
+https://edebalierman.github.io/pokemon/
